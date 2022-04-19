@@ -1,3 +1,6 @@
 #grid-renderer > img {
     position: absolute;
 }
+h1 {
+    color:  rgb(218, 218, 218);
+  }
