@@ -1,11 +1,31 @@
-#grid-renderer>img {
-    position: absolute;
+:root {
+    --mainBackground: rgb(53, 53, 53);
+
+    --text1: rgb(228, 228, 228); 
+
+    --gridFill: rgb(207, 207, 207);
+    --gridOutline:rgb(117, 117, 117);
 }
 
 h1 {
-    color: rgb(218, 218, 218);
+    color: var(--text1);
 }
 
 body {
-    background-color: rgb(100, 100, 100);
+    background-color: var(--mainBackground);
+}
+
+#grid-renderer>svg {
+    position: sticky;
+}
+
+#grid-renderer>svg>defs>pattern#smallGrid>path {
+    position: relative;
+    fill:var(--gridFill);
+    outline: var(--gridOutline);
+}
+
+#grid-renderer>svg>defs>pattern#grid>path {
+    position: relative;
+    outline: var(--gridOutline);
 }
