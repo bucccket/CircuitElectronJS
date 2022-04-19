@@ -10,8 +10,9 @@ ipcRenderer.on("render-grid-response", (event: IpcRendererEvent) => {
         return;
     }
 
-    const grid:Grid = new Grid("main-grid",10);
+    const grid:Grid = new Grid("main-grid",10,10);
     renderer.innerHTML = ""; //clearing HTML before render
     renderer.innerHTML += grid.generateGrid("grid");
 });
+
 ipcRenderer.send("grid-renderer", "request-grid");
