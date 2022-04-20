@@ -33,16 +33,30 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
 
-ipcMain.on("grid-renderer", (event: IpcMainEvent, request: string) => {
+function invokeGridRender(event: IpcMainEvent) {
+    console.log("invoked Ipc grid render response");
+    event.reply("render-response");
+}
+
+function invokeButtonListeners(event: IpcMainEvent) {
+    console.log("invoked Ipc button render response");
+    event.reply("UI-buttons-response");
+}
+
+ipcMain.on("invoke-renderer", (event: IpcMainEvent, request: string) => {
     if (request == "request-grid") {
         invokeGridRender(event);
+    }
+    else if (request == "request-UI-buttons") {
+        invokeButtonListeners(event);
     }
     else {
         console.log(`invalid request :${request}`);
     }
 });
 
-function invokeGridRender(event: IpcMainEvent) {
-    console.log("invoked Ipc grid render response");
-    event.reply("render-grid-response");
-}
+ipcMain.on("btnTestClick",function (event, arg) {
+    console.log(arg);
+
+    event.sender.send("btnTestClick-task-finished", "yes"); 
+});

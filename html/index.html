@@ -4,19 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./index.css">
   <title>CircuitJS</title>
 </head>
 
-<body>
-
-  <div id="title">
-    <h1 style="text-align: center">Welcome to CircuitJS 0.1.0!</h1>
+<body class="unselectable container">
+  <div id="row header">
+    <input class="button" type="button" id="btnTest" value="Test 1" />
+    <input class="button" type="button" id="btnTest2" value="Test 2" />
   </div>
-  <div id="grid-renderer">
-
+  <div class="row content" id="grid-renderer">
+  </div>
+  <div class="row footer">
+    <p>footer</p>
   </div>
 </body>
 
